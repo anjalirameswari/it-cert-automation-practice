@@ -18,10 +18,14 @@ def validate_user(username, minlen):
     # Usernames can't begin with a number
     if username[0].isnumeric():
         return False
+    if (username[0]=="."):
+        return False
+    if (username[0]=="_"):
+        return False
     return True
 
 print(validate_user("blue.kale", 3))  #True
-print(validate_user("3blue.kale", 3))  #Currently True, should be False
+print(validate_user(".blue.kale", 3))  #Currently True, should be False
 print(validate_user("red_quiona", 4))  #True
-print(validate_user("5red_quiona", 4))  #Currently True, should be False    
+print(validate_user("_red_quiona", 4))  #Currently True, should be False    
 
